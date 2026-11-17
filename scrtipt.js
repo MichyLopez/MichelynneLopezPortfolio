@@ -1,3 +1,4 @@
+console.log("JavaScript is connected!");
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightbox-image");

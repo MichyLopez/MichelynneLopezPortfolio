@@ -145,7 +145,7 @@ a{
 .hero-board{
     position:relative;
     flex:1;
-    max-width:500px;
+    max-width:600px;
     height:390px;
     background:#f0ebf3;
     border-radius:4px;
@@ -176,11 +176,11 @@ a{
     margin-top:4px;
 }
 .polaroid-one{
-    left:9%;
+    left:11%;
     top:10%;
 }
 .polaroid-two{
-    right:8%;top:38%;
+    right:10%;top:28%;
 }
 .tilt-left{
     transform:rotate(-7deg);
@@ -214,7 +214,7 @@ a{
 }
 .adobe-strip{
     position:absolute;
-    left:31%;
+    left:32%;
     bottom:7%;
     display:flex;
     align-items:center;
@@ -586,4 +586,4 @@ a{
 
 @media(max-width:760px){.site-header{height:auto;min-height:70px;padding:17px 6%;gap:15px;flex-wrap:wrap}.nav{gap:20px}.hero{padding:55px 7%;flex-direction:column;align-items:stretch}.hero-board{width:100%;max-width:none;height:350px}.featured-section,.page-wrap{padding-left:7%;padding-right:7%}.featured-row{flex-direction:column}.feature-card{min-height:180px}.about-layout{flex-direction:column;align-items:stretch}.about-image{max-width:50%;}.about-image img{height:330px;}.work-category{flex-direction:column}.category-image{width:100%;height:190px}.category-image img{min-height:190px;max-height:190px}.project-card{max-width:100%}.photo-gallery a{flex-basis:42%}.section-heading{align-items:flex-start;gap:20px;flex-direction:column}.site-footer{padding-left:7%;padding-right:7%;flex-wrap:wrap}}
 
-@media(max-width:420px){.brand{font-size:11px}.nav{width:100%;justify-content:flex-start}.hero h1{font-size:58px}.polaroid{width:175px}.polaroid img{height:120px}.hero-board{height:315px}.adobe-strip{left:23%}.photo-gallery a{flex-basis:100%}.button-row{align-items:flex-start;flex-direction:column;gap:18px}}
+@media(max-width:420px){.brand{font-size:11px}.nav{width:100%;justify-content:flex-start}.hero h1{font-size:58px}.polaroid{width:175px}.polaroid img{height:120px}.hero-board{height:315px}.adobe-strip{left:23%}.photo-gallery a{flex-basis:100%}.button-row{align-items:flex-start;flex-direction:column;gap:18px}.lightbox {padding: 50px 45px;}#lightbox-image {max-width: 100%;max-height: 75vh;}.lightbox-prev {left: 0;}.lightbox-next {right: 0;}.lightbox-prev,.lightbox-next {font-size: 25px;padding: 8px;}.lightbox-close {top: 10px;right: 15px;}}
