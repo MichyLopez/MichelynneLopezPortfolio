@@ -14,43 +14,76 @@
   <p class="page-intro">A selection of website concepts, layouts, and interactive projects.</p>
 
   <section class="project-grid">
-  <article class="project-card">
-    <img src="Assets/WebDesign/Scope1.png" alt="Website project preview"><div>
-      <span>PROJECT SCOPE</span>
-      <h2>Galactic Kitchen Project Scope</h2>
-      <p>A themed website concept focused on a consistent visual style, coordinated imagery, and clear page layouts.</p>
-      <a href="Assets/WebDesign/Scope1.png" target="_blank" rel="noopener">View image ↗</a>
-    </div>
-  </article>
 
-  <article class="project-card">
-    <img src="Assets/WebDesign/GalacticWireframe.jpg" alt="Second website project preview"><div>
-      <span>WIRE FRAME</span>
-      <h2>Galactic Kitchen Wireframe</h2>
-      <p>Replace this description with the goal, design choices, and tools used for the project.</p>
-      <a href="images/website-project-2.jpg" target="_blank" rel="noopener">View image ↗</a>
+    <!-- PROJECT SCOPE: MULTIPLE PAGES -->
+    <article class="project-card web-project-card" data-project="scope">
+      <img src="Assets/WebDesign/ProjectScope/Scope1.png" alt="Galactic Kitchen Project Scope">
+      <div>
+        <span>PROJECT SCOPE</span>
+        <h2>Galactic Kitchen Project Scope</h2>
+        <p>Explore the planning, goals, and requirements behind the website.</p>
+        <a href="#" class="view-web-project">View Project ↗</a>
+      </div>
+    </article>
+  
+    <!-- WIREFRAME: SINGLE IMAGE -->
+    <article class="project-card web-project-card" data-project="wireframe">
+      <img src="Assets/WebDesign/GalacticWireframe.jpg" alt="Galactic Kitchen Wireframe">
+      <div>
+        <span>WIREFRAME</span>
+        <h2>Galactic Kitchen Wireframe</h2>
+        <p>Explore the original page layouts and website structure.</p>
+        <a href="#" class="view-web-project">View Project ↗</a>
+      </div>
+    </article>
+  
+    <!-- PROTOTYPE: SINGLE IMAGE -->
+    <article class="project-card web-project-card" data-project="prototype">
+      <img src="Assets/WebDesign/Prototype.png" alt="Galactic Kitchen Prototype">
+      <div>
+        <span>PROTOTYPE</span>
+        <h2>Galactic Kitchen Prototype</h2>
+        <p>Explore the interactive design and visual direction.</p>
+        <a href="#" class="view-web-project">View Project ↗</a>
+      </div>
+    </article>
+  
+    <!-- FINAL WEBSITE: OPENS IN NEW TAB -->
+    <a class="project-card" href="https://galactickitchenn1.com"
+       target="_blank" rel="noopener">
+      <img src="Assets/WebDesign/WebsiteScreenShot.png" alt="Galactic Kitchen Final Website">
+      <div>
+        <span>FINAL PROJECT</span>
+        <h2>Galactic Kitchen Website</h2>
+        <p>Visit the completed website and explore the final result.</p>
+        <span>View Website ↗</span>
+      </div>
+    </a>
+  
+  </section>
+  
+  
+  <!-- WEB DESIGN PROJECT POPUP -->
+  <div id="webProjectLightbox" class="project-lightbox">
+    <button class="web-project-prev" aria-label="Previous">‹</button>
+    <button class="web-project-next" aria-label="Next">›</button>
+  
+    <div class="project-popup">
+      <button class="web-project-close" aria-label="Close">×</button>
+  
+      <div class="project-preview">
+        <img id="webProjectImage" src="" alt="">
+      </div>
+  
+      <div class="project-info">
+        <div id="webProjectCategory"></div>
+        <h2 id="webProjectTitle"></h2>
+        <p id="webProjectDescription"></p>
+        <div id="webProjectCount" class="project-count"></div>
+      </div>
     </div>
-  </article>
-
-  <article class="project-card">
-    <img src="Assets/WebDesign/Prototype.png" alt="Website project preview"><div>
-      <span>PROTOTYPE</span>
-      <h2>Galactic Kitchen Prototype</h2>
-      <p>A themed website concept focused on a consistent visual style, coordinated imagery, and clear page layouts.</p>
-      <a href="images/website-project-1.jpg" target="_blank" rel="noopener">View image ↗</a>
-    </div>
-  </article>
-
-  <article class="project-card">
-    <img src="Assets/WebDesign/WebsiteScreenShot.png" alt="Second website project preview"><div>
-      <span>FINAL PROJECT</span>
-      <h2>Galactic Kitchen Website</h2>
-      <p>Replace this description with the goal, design choices, and tools used for the project.</p>
-      <a href="galactickitchenn1.com">View Site ↗</a>
-    </div>
-  </article>
-
-</section>
+  </div>
+  
 </main>
 <footer class="site-footer">
   <span>© 2026 Michelynne Lopez</span>
