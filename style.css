@@ -439,6 +439,7 @@ a{
     max-width:calc(50% - 11px);
     background:white;
     border:1px solid var(--line);
+    cursor: pointer;
 }
 .project-card img{
     width:100%;
@@ -461,6 +462,154 @@ a{
     font-size:11px;
     color:var(--purple);
     font-weight:700;
+}
+.project-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+
+    background: rgba(25, 22, 30, 0.85);
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 80px;
+    box-sizing: border-box;
+}
+
+.project-lightbox.active {
+    display: flex;
+}
+
+/* WHITE PROJECT POPUP */
+
+.project-popup {
+    background: #ffffff;
+    width: 100%;
+    max-width: 1100px;
+    min-height: 500px;
+    max-height: 85vh;
+
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+
+    border-radius: 12px;
+    overflow: hidden;
+
+    position: relative;
+}
+
+/* LEFT IMAGE SECTION */
+
+.project-preview {
+    background: #f2f0f3;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+    min-width: 0;
+}
+
+#projectImage {
+    max-width: 100%;
+    max-height: 75vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+    display: block;
+}
+
+/* RIGHT INFORMATION SECTION */
+
+.project-info {
+    padding: 55px 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    overflow-y: auto;
+}
+
+#projectCategory {
+    color: #8059a8;
+    font-size: 12px;
+    letter-spacing: 2px;
+    font-weight: 600;
+
+    margin-bottom: 15px;
+}
+
+#projectTitle {
+    color: #26212b;
+    font-size: 30px;
+    line-height: 1.2;
+
+    margin: 0 0 20px;
+}
+
+#projectDescription {
+    color: #716b77;
+    font-size: 15px;
+    line-height: 1.8;
+}
+.project-count {
+    color: #8a8490;
+    font-size: 12px;
+    letter-spacing: 2px;
+
+    margin-top: 35px;
+}
+.project-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    z-index: 10;
+
+    font-size: 35px;
+    color: #29232f;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+}
+.project-prev,
+.project-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: white;
+    font-size: 28px;
+
+    background: none;
+    border: none;
+
+    cursor: pointer;
+    padding: 15px;
+}
+
+.project-prev {
+    left: 15px;
+}
+
+.project-next {
+    right: 15px;
+}
+
+.project-prev:hover,
+.project-next:hover {
+    color: #c9a9e5;
+}
+
+.project-close:hover {
+    color: #8059a8;
 }
 .photo-gallery{
     display:flex;
