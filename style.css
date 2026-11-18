@@ -511,307 +511,37 @@
   .graphic-category    { background: #f2edcf; }
   .internship-category { background: #e4e9e1; }
   
-  /* ======================================
-     PROJECT GRIDS (Graphic + Web)
-     ====================================== */
-  
-  .project-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 22px;
-  }
-  
-  .project-card {
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 290px;
-    max-width: calc(50% - 11px);
-    background: white;
-    border: 1px solid var(--line);
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  
-  .project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(64, 51, 75, 0.08);
-  }
-  
-  .project-card img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    background: #e5dfe8;
-  }
-  
-  .project-card > div {
-    padding: 22px;
-  }
-  
-  .project-card h2 {
-    font: 600 23px 'Playfair Display', serif;
-    margin: 9px 0;
-  }
-  
-  .project-card p {
-    font-size: 13px;
-    line-height: 1.7;
-    color: #77717e;
-  }
-  
-  .project-card a {
-    font-size: 11px;
-    color: var(--purple);
-    font-weight: 700;
-  }
-  
-  /* ======================================
-     PHOTOGRAPHY GALLERY
-     ====================================== */
-  
-  .photo-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-  }
-  
-  .photo-gallery a {
-    flex: 1 1 28%;
-    min-width: 190px;
-    height: 660px;
-    overflow: hidden;
-    background: #e5dfe8;
-  }
-  
-  .photo-gallery img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.35s;
-  }
-  
-  .photo-gallery a:hover img {
-    transform: scale(1.04);
-  }
-  
-  /* ======================================
-     SHARED LIGHTBOX BASE
-     (used by Photography + Project lightboxes)
-     ====================================== */
-  
-  .lightbox,
-  .project-lightbox,
-  #webProjectLightbox {
-    display: none;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background: var(--overlay);
-    justify-content: center;
-    align-items: center;
-    padding: 40px 60px;
-    box-sizing: border-box;
-  }
-  
-  .lightbox.active,
-  .project-lightbox.active,
-  #webProjectLightbox.active {
-    display: flex;
-  }
-  
-  /* Shared navigation arrows (outside the white card) */
-  .lightbox-prev,
-  .lightbox-next,
-  .project-prev,
-  .project-next,
-  .web-project-prev,
-  .web-project-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 32px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 16px;
-    z-index: 10;
-    transition: color 0.2s;
-  }
-  
-  .lightbox-prev,
-  .project-prev,
-  .web-project-prev {
-    left: 20px;
-  }
-  
-  .lightbox-next,
-  .project-next,
-  .web-project-next {
-    right: 20px;
-  }
-  
-  .lightbox-prev:hover,
-  .lightbox-next:hover,
-  .project-prev:hover,
-  .project-next:hover,
-  .web-project-prev:hover,
-  .web-project-next:hover {
-    color: #c9a9e5;
-  }
-  
-  /* Shared close button */
-  .lightbox-close,
-  .project-close,
-  .web-project-close {
-    position: absolute;
-    top: 18px;
-    right: 28px;
-    z-index: 20;
-    font-size: 36px;
-    color: white;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: color 0.2s;
-  }
-  
-  .lightbox-close:hover,
-  .project-close:hover,
-  .web-project-close:hover {
-    color: #c9a9e5;
-  }
-  
-  /* When close is inside the white popup, make it dark */
-  .project-popup .project-close,
-  .project-popup .web-project-close {
-    color: #29232f;
-    top: 15px;
-    right: 22px;
-  }
-  
-  .project-popup .project-close:hover,
-  .project-popup .web-project-close:hover {
-    color: var(--purple);
-  }
-  
-  /* ======================================
-     PHOTOGRAPHY LIGHTBOX (image only)
-     ====================================== */
-  
-  #lightbox-image {
-    max-width: 100%;
-    max-height: 85vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-  }
-  
-  #lightbox-counter {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 13px;
-    letter-spacing: 2px;
-    font-family: 'DM Mono', monospace;
-  }
-  
-  /* ======================================
-     PROJECT LIGHTBOX (Graphic Design + Web Design)
-     White card with image + info
-     ====================================== */
-  
-  .project-popup {
-    background: #ffffff;
-    width: 100%;
-    max-width: 1100px;
-    min-height: 500px;
-    max-height: 85vh;
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    border-radius: 12px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
-  }
-  
-  /* Left image area */
-  .project-preview {
-    background: #f2f0f3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    min-width: 0;
-  }
-  
-  #projectImage,
-  #webProjectImage {
-    max-width: 100%;
-    max-height: 75vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-  }
-  
-  /* Right info panel */
-  .project-info {
-    padding: 50px 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow-y: auto;
-  }
-  
-  #projectCategory,
-  #webProjectCategory {
-    color: var(--purple);
-    font-size: 12px;
-    letter-spacing: 2px;
-    font-weight: 600;
-    margin-bottom: 14px;
-    font-family: 'DM Mono', monospace;
-  }
-  
-  #projectTitle,
-  #webProjectTitle {
-    color: var(--ink);
-    font-size: 28px;
-    line-height: 1.2;
-    margin: 0 0 18px;
-    font-family: 'Playfair Display', serif;
-    font-weight: 600;
-  }
-  
-  #projectDescription,
-  #webProjectDescription {
-    color: #716b77;
-    font-size: 15px;
-    line-height: 1.8;
-  }
-  
-  .project-count,
-  #projectCount,
-  #webProjectCount {
-    color: #8a8490;
-    font-size: 12px;
-    letter-spacing: 2px;
-    margin-top: 32px;
-    font-family: 'DM Mono', monospace;
-  }
-  
-  /* Hide arrows when project has only one image */
-  .project-lightbox.single-image .project-prev,
-  .project-lightbox.single-image .project-next,
-  #webProjectLightbox.single-image .web-project-prev,
-  #webProjectLightbox.single-image .web-project-next {
-    display: none;
-  }
-  
+  /* SHARED PROJECT GRIDS + CARDS */
+  .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+  .project-card{display:flex;flex-direction:column;min-width:0;background:#fff;border:1px solid var(--line);cursor:pointer;transition:transform .2s,box-shadow .2s}
+  .project-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(64,51,75,.08)}
+  .project-card img{display:block;width:100%;height:230px;object-fit:cover;background:#e5dfe8}
+  .project-card>div{padding:22px}.project-card h2{font:600 23px 'Playfair Display',serif;margin:9px 0}
+  .project-card p{font-size:13px;line-height:1.6;color:#77717e;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .project-card a{font-size:11px;color:var(--purple);font-weight:700}
+  /* PHOTOGRAPHY GALLERY */
+  .photo-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:45px}
+  .photo-gallery a{display:block;min-width:0;height:430px;overflow:hidden;background:#e5dfe8;cursor:pointer}
+  .photo-gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s}
+  .photo-gallery a:hover img{transform:scale(1.04)}
+  /* ONE SHARED LIGHTBOX FOR ALL PROJECT TYPES */
+  .project-lightbox{display:none;position:fixed;inset:0;z-index:9999;background:var(--overlay);justify-content:center;align-items:center;padding:40px 60px;box-sizing:border-box}
+  .project-lightbox.active{display:flex}
+  .project-popup{background:#fff;width:100%;max-width:1100px;min-height:460px;max-height:85vh;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr);border-radius:12px;overflow:hidden;position:relative;box-shadow:0 25px 60px rgba(0,0,0,.35)}
+  .project-preview{background:#f2f0f3;display:flex;justify-content:center;align-items:center;padding:30px;min-width:0;min-height:0}
+  #portfolioImage,#portfolioVideo{display:block;max-width:100%;max-height:75vh;width:auto;height:auto;object-fit:contain}
+  #portfolioVideo{width:100%;background:#111;border-radius:4px}#portfolioImage[hidden],#portfolioVideo[hidden]{display:none}
+  .project-info{padding:50px 40px;display:flex;flex-direction:column;justify-content:center;overflow-y:auto}
+  #portfolioCategory{color:var(--purple);font-size:12px;letter-spacing:2px;font-weight:600;margin-bottom:14px;font-family:'DM Mono',monospace}
+  #portfolioTitle{color:var(--ink);font-size:28px;line-height:1.2;margin:0 0 18px;font-family:'Playfair Display',serif;font-weight:600}
+  #portfolioDescription{color:#716b77;font-size:15px;line-height:1.8}
+  .project-count{color:#8a8490;font-size:12px;letter-spacing:2px;margin-top:32px;font-family:'DM Mono',monospace}
+  .lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);color:white;font-size:36px;background:none;border:0;cursor:pointer;padding:16px;z-index:10;transition:color .2s}
+  .lightbox-prev{left:20px}.lightbox-next{right:20px}.lightbox-prev:hover,.lightbox-next:hover{color:#c9a9e5}
+  .lightbox-prev[hidden],.lightbox-next[hidden]{display:none}
+  .project-close{position:absolute;top:12px;right:18px;z-index:20;font-size:34px;line-height:1;color:#29232f;background:none;border:0;cursor:pointer;transition:color .2s}
+  .project-close:hover{color:var(--purple)}
+
   /* ======================================
      FOOTER
      ====================================== */
@@ -830,32 +560,7 @@
     color: var(--purple);
   }
   
-  /* ======================================
-     RESPONSIVE (basic)
-     ====================================== */
-  
-  @media (max-width: 900px) {
-    .project-popup {
-      grid-template-columns: 1fr;
-      max-height: 90vh;
-    }
-  
-    .project-preview {
-      max-height: 45vh;
-    }
-  
-    .hero {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .hero-board {
-      width: 100%;
-      max-width: 100%;
-    }
-  }
 
-
-@media(max-width:760px){.site-header{height:auto;min-height:70px;padding:17px 6%;gap:15px;flex-wrap:wrap}.nav{gap:20px}.hero{padding:55px 7%;flex-direction:column;align-items:stretch}.hero-board{width:100%;max-width:none;height:350px}.featured-section,.page-wrap{padding-left:7%;padding-right:7%}.featured-row{flex-direction:column}.feature-card{min-height:180px}.about-layout{flex-direction:column;align-items:stretch}.about-image{max-width:50%;}.about-image img{height:330px;}.work-category{flex-direction:column}.category-image{width:100%;height:190px}.category-image img{min-height:190px;max-height:190px}.project-card{max-width:100%}.photo-gallery a{flex-basis:42%}.section-heading{align-items:flex-start;gap:20px;flex-direction:column}.site-footer{padding-left:7%;padding-right:7%;flex-wrap:wrap}}
-
-@media(max-width:420px){.brand{font-size:11px}.nav{width:100%;justify-content:flex-start}.hero h1{font-size:58px}.polaroid{width:175px}.polaroid img{height:120px}.hero-board{height:315px}.adobe-strip{left:23%}.photo-gallery a{flex-basis:100%}.button-row{align-items:flex-start;flex-direction:column;gap:18px}.lightbox {padding: 50px 45px;}#lightbox-image {max-width: 100%;max-height: 75vh;}.lightbox-prev {left: 0;}.lightbox-next {right: 0;}.lightbox-prev,.lightbox-next {font-size: 25px;padding: 8px;}.lightbox-close {top: 10px;right: 15px;}}
+@media(max-width:760px){
+.site-header{height:auto;min-height:70px;padding:17px 6%;gap:15px;flex-wrap:wrap}.nav{gap:20px}.hero{padding:55px 7%;flex-direction:column;align-items:stretch}.hero-board{width:100%;max-width:none;height:350px}.featured-section,.page-wrap{padding-left:7%;padding-right:7%}.featured-row{flex-direction:column}.feature-card{min-height:180px}.about-layout{flex-direction:column;align-items:stretch}.about-image{max-width:50%}.about-image img{height:330px}.work-category{flex-direction:column}.category-image{width:100%;height:190px}.category-image img{min-height:190px;max-height:190px}.project-grid{grid-template-columns:1fr}.photo-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.photo-gallery a{height:360px}.section-heading{align-items:flex-start;gap:20px;flex-direction:column}.site-footer{padding-left:7%;padding-right:7%;flex-wrap:wrap}.project-lightbox{padding:55px 48px}.project-popup{grid-template-columns:1fr;max-height:88vh;overflow-y:auto}.project-preview{min-height:260px}.project-info{padding:28px}#portfolioImage,#portfolioVideo{max-height:45vh}.lightbox-prev{left:0}.lightbox-next{right:0}}
+@media(max-width:420px){.brand{font-size:11px}.nav{width:100%;justify-content:flex-start}.hero h1{font-size:58px}.polaroid{width:175px}.polaroid img{height:120px}.hero-board{height:315px}.adobe-strip{left:23%}.photo-gallery{grid-template-columns:1fr}.photo-gallery a{height:420px}.button-row{align-items:flex-start;flex-direction:column;gap:18px}.project-lightbox{padding:48px 38px}.project-preview{min-height:210px;padding:18px}.project-info{padding:24px}#portfolioTitle{font-size:24px}}

@@ -1,8 +1,67 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Internship Work | Your Name</title><link rel="stylesheet" href="style.css"></head>
-<body><header class="site-header"><a class="brand" href="index.html">YOUR NAME<span> / PORTFOLIO</span></a><nav class="nav"><a href="index.html">Home</a><a href="about.html">About</a><a class="active" href="work.html">Work</a></nav></header>
-<main class="page-wrap"><a class="back-link" href="work.html">← Back to all work</a><p class="eyebrow">04 / REAL-WORLD EXPERIENCE</p><h1 class="page-title">Internship <span>work.</span></h1><p class="page-intro">Selected content and creative projects developed through internship experience. Only include work you have permission to share.</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internship Work | Your Name</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+<body>
+  <header class="site-header">
+  <a class="brand" href="index.html">Michelynne Lopez<span> / PORTFOLIO</span>
+  </a>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a class="active" href="work.html">Work</a>
+  </nav>
+</header>
+<main class="page-wrap">
+  <a class="back-link" href="work.html">← Back to all work</a>
+  <p class="eyebrow">04 / REAL-WORLD EXPERIENCE</p>
+  <h1 class="page-title">Internship <span>work.</span></h1>
+  <p class="page-intro">Selected content and creative projects developed through internship experience. Only include work you have permission to share.</p>
 <section class="project-grid">
-  <article class="project-card"><img src="images/internship-project-1.jpg" alt="Internship project preview 1"><div><span>VIDEO / SOCIAL CONTENT</span><h2>Project Title</h2><p>Explain your role, the audience, the platform, and the tools you used.</p><a href="images/internship-project-1.jpg" target="_blank" rel="noopener">View image ↗</a></div></article>
-  <article class="project-card"><img src="images/internship-project-2.jpg" alt="Internship project preview 2"><div><span>CAMPAIGN / DESIGN</span><h2>Project Title</h2><p>Describe the goal and what you contributed to the final result.</p><a href="images/internship-project-2.jpg" target="_blank" rel="noopener">View image ↗</a></div></article>
-</section></main><footer class="site-footer"><span>© 2026 Michelynne Lopez</span><a href="work.html">Back to work categories ↑</a></footer></body></html>
+  <article class="project-card" data-lightbox="image">
+    <img src="Assets/Internship/" alt="Internship project preview 1">
+    <div><span>VIDEO / SOCIAL CONTENT</span>
+      <h2>Project Title</h2>
+      <p>Explain your role, the audience, the platform, and the tools you used.</p><a href="images/internship-project-1.jpg" class="view-project" target="_blank" rel="noopener">View image ↗</a>
+    </div>
+  </article>
+
+  <article class="project-card" data-lightbox="image">
+    <img src="images/internship-project-2.jpg" alt="Internship project preview 2"><div>
+      <span>CAMPAIGN / DESIGN</span>
+      <h2>Project Title</h2>
+      <p>Describe the goal and what you contributed to the final result.</p><a href="images/internship-project-2.jpg" class="view-project" target="_blank" rel="noopener">View image ↗</a>
+    </div>
+  </article>
+
+</section>
+
+<!-- One shared lightbox for every project type -->
+<div id="portfolioLightbox" class="project-lightbox" aria-hidden="true">
+  <button class="lightbox-prev" type="button" aria-label="Previous project">‹</button>
+  <button class="lightbox-next" type="button" aria-label="Next project">›</button>
+  <div class="project-popup" role="dialog" aria-modal="true" aria-label="Project preview">
+    <button class="project-close" type="button" aria-label="Close">×</button>
+    <div class="project-preview">
+      <img id="portfolioImage" src="" alt="">
+      <video id="portfolioVideo" controls playsinline hidden></video>
+    </div>
+    <div class="project-info">
+      <div id="portfolioCategory"></div><h2 id="portfolioTitle"></h2>
+      <p id="portfolioDescription"></p><div id="portfolioCount" class="project-count"></div>
+    </div>
+  </div>
+</div>
+
+</main>
+<footer class="site-footer">
+  <span>© 2026 Michelynne Lopez</span>
+  <a href="work.html">Back to work categories ↑</a>
+</footer>
+<script src="scrtipt.js" defer></script>
+</body>
+</html>

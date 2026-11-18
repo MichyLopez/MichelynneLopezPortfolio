@@ -13,23 +13,23 @@
 <h1>Family Photography</h1>
 
 <section class="photo-gallery">
-    <a href="Assets/Photography/Photo1.JPG">
+    <a data-lightbox="photo" href="Assets/Photography/Photo1.JPG">
         <img src="Assets/Photography/Photo1.JPG" alt="Family photography 1">
     </a>
 
-    <a href="Assets/Photography/Photo2.JPG">
+    <a data-lightbox="photo" href="Assets/Photography/Photo2.JPG">
         <img src="Assets/Photography/Photo2.JPG" alt="Family photography 2">
     </a>
 
-    <a href="Assets/Photography/Photo3.JPG">
+    <a data-lightbox="photo" href="Assets/Photography/Photo3.JPG">
         <img src="Assets/Photography/Photo3.JPG" alt="Family photography 3">
     </a>
 
-    <a href="Assets/Photography/Photo4.JPG">
+    <a data-lightbox="photo" href="Assets/Photography/Photo4.JPG">
         <img src="Assets/Photography/Photo4.JPG" alt="Family photography 4">
     </a>
 
-    <a href="Assets/Photography/Photo5.JPG">
+    <a data-lightbox="photo" href="Assets/Photography/Photo5.JPG">
         <img src="Assets/Photography/Photo5.JPG" alt="Family photography 5">
     </a>
 </section>
@@ -39,27 +39,27 @@
 <h1>Casual/Candid Photography</h1>
 
 <section class="photo-gallery">
-    <a href="Assets/Photography/QuietSpace.JPG">
+    <a data-lightbox="photo" href="Assets/Photography/QuietSpace.JPG">
         <img src="Assets/Photography/QuietSpace.JPG" alt="Quiet Space">
     </a>
 
-    <a href="Assets/Photography/SharedDirection.JPG">
+    <a data-lightbox="photo" href="Assets/Photography/SharedDirection.JPG">
         <img src="Assets/Photography/SharedDirection.JPG" alt="Shared Direction">
     </a>
 
-    <a href="Assets/Photography/ForwardMomentum.JPG">
+    <a data-lightbox="photo" href="Assets/Photography/ForwardMomentum.JPG">
         <img src="Assets/Photography/ForwardMomentum.JPG" alt="Forward Momentum">
     </a>
 
-    <a href="Assets/Photography/FramedPerspective.JPG">
+    <a data-lightbox="photo" href="Assets/Photography/FramedPerspective.JPG">
         <img src="Assets/Photography/FramedPerspective.JPG" alt="Framed Perspective">
     </a>
 
-    <a href="Assets/Photography/InBetween.JPG">
+    <a data-lightbox="photo" href="Assets/Photography/InBetween.JPG">
         <img src="Assets/Photography/InBetween.JPG" alt="In Between">
     </a>
 
-    <a href="Assets/Photography/MovmentinLight.JPG">
+    <a data-lightbox="photo" href="Assets/Photography/MovmentinLight.JPG">
         <img src="Assets/Photography/MovmentinLight.JPG" alt="Movement in Light">
     </a>
 </section>
@@ -69,28 +69,37 @@
 <h1>Couples Photography</h1>
 
 <section class="photo-gallery">
-    <a href="Assets/Photography/Couples2.jpg">
+    <a data-lightbox="photo" href="Assets/Photography/Couples2.jpg">
         <img src="Assets/Photography/Couples2.jpg" alt="Couples photography 2">
     </a>
 
-    <a href="Assets/Photography/Couples3.jpg">
+    <a data-lightbox="photo" href="Assets/Photography/Couples3.jpg">
         <img src="Assets/Photography/Couples3.jpg" alt="Couples photography 3">
     </a>
 
-    <a href="Assets/Photography/Couples4.JPG">
+    <a data-lightbox="photo" href="Assets/Photography/Couples4.JPG">
         <img src="Assets/Photography/Couples4.JPG" alt="Couples photography 4">
     </a>
 </section>
 
-<div id="lightbox" class="lightbox">
-    <button class="lightbox-close">×</button>
-    <button class="lightbox-prev">‹</button>
-    <button class="lightbox-next">›</button>
-    <img id="lightbox-image" src="" alt="">
-    <div id="lightbox-counter"></div>
-  </div>
 
+<!-- One shared lightbox for every project type -->
+<div id="portfolioLightbox" class="project-lightbox" aria-hidden="true">
+  <button class="lightbox-prev" type="button" aria-label="Previous project">‹</button>
+  <button class="lightbox-next" type="button" aria-label="Next project">›</button>
+  <div class="project-popup" role="dialog" aria-modal="true" aria-label="Project preview">
+    <button class="project-close" type="button" aria-label="Close">×</button>
+    <div class="project-preview">
+      <img id="portfolioImage" src="" alt="">
+      <video id="portfolioVideo" controls playsinline hidden></video>
+    </div>
+    <div class="project-info">
+      <div id="portfolioCategory"></div><h2 id="portfolioTitle"></h2>
+      <p id="portfolioDescription"></p><div id="portfolioCount" class="project-count"></div>
+    </div>
+  </div>
 </div>
+
 </main>
 <footer class="site-footer"><span>© 2026 Michelynne Lopez</span><a href="work.html">Back to work categories ↑</a></footer>
 <script src="scrtipt.js" defer></script>

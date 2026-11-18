@@ -15,8 +15,7 @@
   <p class="page-intro">Posters, social media graphics, branding explorations, and visual concepts.</p>
 
   <section class="project-grid">
-
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/Bushs1.jpg" alt="Review Poster">
       <div>
         <span>TABLE POSTER DESIGN</span>
@@ -25,7 +24,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/Bushs2.png" alt="Manager Special Mood Board">
       <div>
         <span>MOOD BOARD</span>
@@ -34,7 +33,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/Bushs3.png" alt="Manager Special Poster">
       <div>
         <span>POSTER DESIGN</span>
@@ -43,7 +42,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/Bushs4.png" alt="Buffalo Fries Poster">
       <div>
         <span>POSTER DESIGN</span>
@@ -52,7 +51,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/Bushs5.png" alt="Manager Special Design">
       <div>
         <span>POSTER DESIGN</span>
@@ -61,7 +60,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/Logo1.jpg" alt="Fictional Restaurant Logo">
       <div>
         <span>LOGO DESIGN</span>
@@ -70,7 +69,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/Logo2.jpg" alt="Personal Logo">
       <div>
         <span>LOGO DESIGN</span>
@@ -79,7 +78,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/SchoolLogo1.jpg" alt="School Contest Logo">
       <div>
         <span>LOGO DESIGN</span>
@@ -88,7 +87,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/SchoolLogo2.jpg" alt="School Personal Logo">
       <div>
         <span>LOGO DESIGN</span>
@@ -97,7 +96,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/positivenegative.jpg" alt="Positive and Negative">
       <div>
         <span>DIGITAL ARTS</span>
@@ -106,7 +105,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/ProgressiveRhythm.jpg" alt="Progressive Rhythm">
       <div>
         <span>DIGITAL ARTS</span>
@@ -115,7 +114,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/RandomRhythm.jpg" alt="Random Rhythm">
       <div>
         <span>DIGITAL ARTS</span>
@@ -124,7 +123,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/RegularRythem.jpg" alt="Regular Rhythm">
       <div>
         <span>DIGITAL ARTS</span>
@@ -133,7 +132,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/FlowingRythem.jpg" alt="Flowing Rhythm">
       <div>
         <span>DIGITAL ARTS</span>
@@ -142,7 +141,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/AlternatingRhythm.jpg" alt="Alternating Rhythm">
       <div>
         <span>DIGITAL ARTS</span>
@@ -151,7 +150,7 @@
       </div>
     </article>
   
-    <article class="project-card">
+    <article class="project-card" data-lightbox="image">
       <img src="Assets/GraphicDesign/BuisnessCard.png" alt="Business Card">
       <div>
         <span>PRINT DESIGN</span>
@@ -162,26 +161,24 @@
   
   </section>
   
-  <!-- Graphic Design Lightbox -->
-<div id="projectLightbox" class="project-lightbox">
-  <button class="project-prev" aria-label="Previous">‹</button>
-  <button class="project-next" aria-label="Next">›</button>
-
-  <div class="project-popup">
-    <button class="project-close" aria-label="Close">×</button>
-
+  
+<!-- One shared lightbox for every project type -->
+<div id="portfolioLightbox" class="project-lightbox" aria-hidden="true">
+  <button class="lightbox-prev" type="button" aria-label="Previous project">‹</button>
+  <button class="lightbox-next" type="button" aria-label="Next project">›</button>
+  <div class="project-popup" role="dialog" aria-modal="true" aria-label="Project preview">
+    <button class="project-close" type="button" aria-label="Close">×</button>
     <div class="project-preview">
-      <img id="projectImage" src="" alt="">
+      <img id="portfolioImage" src="" alt="">
+      <video id="portfolioVideo" controls playsinline hidden></video>
     </div>
-
     <div class="project-info">
-      <div id="projectCategory"></div>
-      <h2 id="projectTitle"></h2>
-      <p id="projectDescription"></p>
-      <div id="projectCount" class="project-count"></div>
+      <div id="portfolioCategory"></div><h2 id="portfolioTitle"></h2>
+      <p id="portfolioDescription"></p><div id="portfolioCount" class="project-count"></div>
     </div>
   </div>
 </div>
+
 </main>
 <footer class="site-footer">
   <span>© 2026 Michelynne Lopez</span>

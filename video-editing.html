@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Video Editing | Michelynne Lopez</title><link rel="stylesheet" href="style.css"><script src="scrtipt.js" defer></script></head>
+<body><header class="site-header"><a class="brand" href="index.html">Michelynne Lopez<span> / PORTFOLIO</span></a><nav class="nav" aria-label="Main navigation"><a href="index.html">Home</a><a href="about.html">About</a><a class="active" href="work.html">Work</a></nav></header>
+<main class="page-wrap"><a class="back-link" href="work.html">← Back to all work</a><p class="eyebrow">05 / VISUAL STORYTELLING</p><h1 class="page-title">Video <span>editing.</span></h1><p class="page-intro">Selected content and creative projects developed with Creative Cloud experience.</p>
+<section class="project-grid">
+<article class="project-card" data-project="unfilteredChaos" data-lightbox="video"><img src="Assets/VideoEditing/ScreenshotUnfilteredChaos.png" alt="Unfiltered Chaos preview"><div><span>VIDEO / MOTION DESIGN</span><h2>Unfiltered Chaos</h2><p>A fast-paced editing project using pacing, transitions, sound design, and visual elements to build an engaging story.</p><a href="Assets/VideoEditing/Video4.mp4" class="view-project">View project ↗</a></div></article>
+<article class="project-card" data-project="logoVid" data-lightbox="video"><img src="Assets/VideoEditing/ScreenshotVIsualLogo.png" alt="MA Visuals logo video preview"><div><span>VIDEO / MOTION DESIGN</span><h2>MA Visuals</h2><p>A promotional-style edit featuring color correction, motion graphics, and smooth transitions.</p><a href="Assets/VideoEditing/Video2.mp4" class="view-project">View project ↗</a></div></article>
+<article class="project-card" data-project="VFXshot" data-lightbox="video"><img src="Assets/VideoEditing/ScreenshotVFX.png" alt="Visual effects video preview"><div><span>VIDEO / GREEN SCREEN</span><h2>Visual Effects</h2><p>A visual effects project demonstrating compositing, color correction, and creative editing techniques.</p><a href="Assets/VideoEditing/Video1.mp4" class="view-project">View project ↗</a></div></article>
+<article class="project-card" data-project="eggVideo" data-lightbox="video"><img src="Assets/VideoEditing/ScreenshotEggVideo.png" alt="Short visual effects video preview"><div><span>VIDEO / GREEN SCREEN</span><h2>Short Visual Effects Video</h2><p>A screen-replacement and visual effects project featuring an animated message reveal.</p><a href="Assets/VideoEditing/Video5.mp4" class="view-project">View project ↗</a></div></article>
+<article class="project-card" data-project="roadTrip" data-lightbox="video"><img src="Assets/VideoEditing/ScreenshotRoadtrip.png" alt="Family road trip video preview"><div><span>VIDEO / SOCIAL MEDIA</span><h2>Family Road Trip</h2><p>A travel video using shot variety, pacing, transitions, camera tracking, and color correction to tell the story of a family trip.</p><a href="Assets/VideoEditing/Video6.mp4" class="view-project">View project ↗</a></div></article>
+</section>
+
+<!-- One shared lightbox for every project type -->
+<div id="portfolioLightbox" class="project-lightbox" aria-hidden="true">
+  <button class="lightbox-prev" type="button" aria-label="Previous project">‹</button>
+  <button class="lightbox-next" type="button" aria-label="Next project">›</button>
+  <div class="project-popup" role="dialog" aria-modal="true" aria-label="Project preview">
+    <button class="project-close" type="button" aria-label="Close">×</button>
+    <div class="project-preview">
+      <img id="portfolioImage" src="" alt="">
+      <video id="portfolioVideo" controls playsinline hidden></video>
+    </div>
+    <div class="project-info">
+      <div id="portfolioCategory"></div><h2 id="portfolioTitle"></h2>
+      <p id="portfolioDescription"></p><div id="portfolioCount" class="project-count"></div>
+    </div>
+  </div>
+</div>
+</main><footer class="site-footer"><span>© 2026 Michelynne Lopez</span><a href="work.html">Back to work categories ↑</a></footer></body></html>

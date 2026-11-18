@@ -16,7 +16,7 @@
   <section class="project-grid">
 
     <!-- PROJECT SCOPE: MULTIPLE PAGES -->
-    <article class="project-card web-project-card" data-project="scope">
+    <article class="project-card web-project-card" data-lightbox="web" data-project="scope">
       <img src="Assets/WebDesign/ProjectScope/Scope1.png" alt="Galactic Kitchen Project Scope">
       <div>
         <span>PROJECT SCOPE</span>
@@ -27,7 +27,7 @@
     </article>
   
     <!-- WIREFRAME: SINGLE IMAGE -->
-    <article class="project-card web-project-card" data-project="wireframe">
+    <article class="project-card web-project-card" data-lightbox="web" data-project="wireframe">
       <img src="Assets/WebDesign/GalacticWireframe.jpg" alt="Galactic Kitchen Wireframe">
       <div>
         <span>WIREFRAME</span>
@@ -38,7 +38,7 @@
     </article>
   
     <!-- PROTOTYPE: SINGLE IMAGE -->
-    <article class="project-card web-project-card" data-project="prototype">
+    <article class="project-card web-project-card" data-lightbox="web" data-project="prototype">
       <img src="Assets/WebDesign/Prototype.png" alt="Galactic Kitchen Prototype">
       <div>
         <span>PROTOTYPE</span>
@@ -63,27 +63,24 @@
   </section>
   
   
-  <!-- WEB DESIGN PROJECT POPUP -->
-  <div id="webProjectLightbox" class="project-lightbox">
-    <button class="web-project-prev" aria-label="Previous">‹</button>
-    <button class="web-project-next" aria-label="Next">›</button>
   
-    <div class="project-popup">
-      <button class="web-project-close" aria-label="Close">×</button>
-  
-      <div class="project-preview">
-        <img id="webProjectImage" src="" alt="">
-      </div>
-  
-      <div class="project-info">
-        <div id="webProjectCategory"></div>
-        <h2 id="webProjectTitle"></h2>
-        <p id="webProjectDescription"></p>
-        <div id="webProjectCount" class="project-count"></div>
-      </div>
+<!-- One shared lightbox for every project type -->
+<div id="portfolioLightbox" class="project-lightbox" aria-hidden="true">
+  <button class="lightbox-prev" type="button" aria-label="Previous project">‹</button>
+  <button class="lightbox-next" type="button" aria-label="Next project">›</button>
+  <div class="project-popup" role="dialog" aria-modal="true" aria-label="Project preview">
+    <button class="project-close" type="button" aria-label="Close">×</button>
+    <div class="project-preview">
+      <img id="portfolioImage" src="" alt="">
+      <video id="portfolioVideo" controls playsinline hidden></video>
+    </div>
+    <div class="project-info">
+      <div id="portfolioCategory"></div><h2 id="portfolioTitle"></h2>
+      <p id="portfolioDescription"></p><div id="portfolioCount" class="project-count"></div>
     </div>
   </div>
-  
+</div>
+
 </main>
 <footer class="site-footer">
   <span>© 2026 Michelynne Lopez</span>

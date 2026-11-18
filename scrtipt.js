@@ -1,322 +1,44 @@
-console.log(
-    "Project cards found:",
-    document.querySelectorAll(".project-card").length
-  );
-  
-  // ======================================
-  // SHARED LIGHTBOX HELPERS
-  // ======================================
-  
-  let activeLightbox = null;
-  
-  function openLightbox(lightbox) {
-    if (!lightbox) return;
-    lightbox.classList.add("active");
-    activeLightbox = lightbox;
-    document.body.style.overflow = "hidden";
-  }
-  
-  function closeLightbox(lightbox) {
-    if (!lightbox) return;
-    lightbox.classList.remove("active");
-    document.body.style.overflow = "";
-    activeLightbox = null;
-  }
-  
-  // One shared keyboard listener for all lightboxes
-  document.addEventListener("keydown", function (event) {
-    if (!activeLightbox) return;
-  
-    const id = activeLightbox.id;
-  
-    if (event.key === "Escape") {
-      if (id === "lightbox" && activeLightbox.closePhoto) {
-        activeLightbox.closePhoto();
-      } else if (id === "projectLightbox") {
-        closeProjectLightbox();
-      } else if (id === "webProjectLightbox") {
-        closeWebProject();
-      }
-    }
-  
-    if (event.key === "ArrowRight") {
-      if (id === "lightbox" && activeLightbox.nextPhoto) {
-        activeLightbox.nextPhoto();
-      } else if (id === "projectLightbox") {
-        nextProject();
-      } else if (id === "webProjectLightbox") {
-        changeWebProjectPage(1);
-      }
-    }
-  
-    if (event.key === "ArrowLeft") {
-      if (id === "lightbox" && activeLightbox.previousPhoto) {
-        activeLightbox.previousPhoto();
-      } else if (id === "projectLightbox") {
-        previousProject();
-      } else if (id === "webProjectLightbox") {
-        changeWebProjectPage(-1);
-      }
-    }
+// ======================================
+// ONE SHARED PORTFOLIO LIGHTBOX
+// ======================================
+(() => {
+  const lightbox = document.getElementById("portfolioLightbox");
+  if (!lightbox) return;
+  const image = document.getElementById("portfolioImage");
+  const video = document.getElementById("portfolioVideo");
+  const category = document.getElementById("portfolioCategory");
+  const title = document.getElementById("portfolioTitle");
+  const description = document.getElementById("portfolioDescription");
+  const count = document.getElementById("portfolioCount");
+  const closeButton = lightbox.querySelector(".project-close");
+  const prevButton = lightbox.querySelector(".lightbox-prev");
+  const nextButton = lightbox.querySelector(".lightbox-next");
+
+  const webProjects = {
+    scope:{category:"PROJECT SCOPE",title:"Galactic Kitchen Project Scope",description:"Explore the planning, goals, and requirements behind the website.",type:"image",media:["Assets/WebDesign/ProjectScope/Scope1.png","Assets/WebDesign/ProjectScope/Scope2.png","Assets/WebDesign/ProjectScope/Scope3.png"]},
+    wireframe:{category:"WIREFRAME",title:"Galactic Kitchen Wireframe",description:"Explore the original page layouts and website structure.",type:"image",media:["Assets/WebDesign/GalacticWireframe.jpg"]},
+    prototype:{category:"PROTOTYPE",title:"Galactic Kitchen Prototype",description:"Explore the interactive design and visual direction.",type:"image",media:["Assets/WebDesign/Prototype.png"]}
+  };
+  const videoProjects = {
+    unfilteredChaos:{category:"VIDEO / MOTION DESIGN",title:"Unfiltered Chaos",description:"This fast-paced editing project demonstrates my ability to build an engaging story through pacing, transitions, and sound design. I combined music, visual effects, and creative editing techniques with clips from my personal life at school and work. I also incorporated graphic elements representing food, books, stars, and hearts.",type:"video",media:["Assets/VideoEditing/Video4.mp4"]},
+    logoVid:{category:"VIDEO / MOTION DESIGN",title:"MA Visuals",description:"A promotional-style edit highlighting cinematic footage, color correction, motion graphics, smooth transitions, and carefully timed edits.",type:"video",media:["Assets/VideoEditing/Video2.mp4"]},
+    VFXshot:{category:"VIDEO / GREEN SCREEN",title:"Visual Effects",description:"A visual effects project demonstrating compositing, color correction, motion graphics, and creative editing techniques.",type:"video",media:["Assets/VideoEditing/Video1.mp4"]},
+    eggVideo:{category:"VIDEO / GREEN SCREEN",title:"Short Visual Effects Video",description:"I replaced a screen with a desktop that appears to move on its own, added visual effects for an unusual egg and message reveal, then color-corrected the footage so the clips had matching lighting and color.",type:"video",media:["Assets/VideoEditing/Video5.mp4"]},
+    roadTrip:{category:"VIDEO / SOCIAL MEDIA",title:"Family Road Trip",description:"This travel video captures my family's road trip to the Blue Bell Ice Cream Factory in Brenham and Ripley's Museum in San Antonio. I selected wide, medium, and close-up shots to create a cohesive story, used soft wipe transitions to distinguish locations, added camera tracking for the opening title, and applied color correction for a vintage feel.",type:"video",media:["Assets/VideoEditing/Video6.mp4"]}
+  };
+  let items=[]; let index=0;
+  function cardData(card){const img=card.querySelector("img");return {category:card.querySelector("span")?.textContent.trim()||"",title:card.querySelector("h2")?.textContent.trim()||img?.alt||"Project",description:card.querySelector("p")?.textContent.trim()||"",type:"image",media:[img?.currentSrc||img?.src||""]};}
+  function render(){if(!items.length)return;index=(index+items.length)%items.length;const item=items[index];const src=item.media[item.page||0]||"";category.textContent=item.category||"";title.textContent=item.title||"";description.textContent=item.description||"";if(item.type==="video"){image.hidden=true;image.removeAttribute("src");video.hidden=false;video.pause();video.src=src;video.load();}else{video.pause();video.removeAttribute("src");video.load();video.hidden=true;image.hidden=false;image.src=src;image.alt=item.alt||item.title||"";}count.textContent=item.media.length>1?`PAGE ${(item.page||0)+1} OF ${item.media.length}`:`${index+1} / ${items.length}`;const nav=(items.length>1||item.media.length>1);prevButton.hidden=nextButton.hidden=!nav;}
+  function open(list,start=0){items=list;index=start;render();lightbox.classList.add("active");lightbox.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";closeButton.focus();}
+  function close(){lightbox.classList.remove("active");lightbox.setAttribute("aria-hidden","true");document.body.style.overflow="";video.pause();video.removeAttribute("src");video.load();image.removeAttribute("src");items=[];index=0;}
+  function move(dir){if(!items.length)return;const item=items[index];if(item.media.length>1){item.page=((item.page||0)+dir+item.media.length)%item.media.length;render();}else renderIndex(index+dir);}
+  function renderIndex(next){index=(next+items.length)%items.length;render();}
+  document.addEventListener("click",e=>{
+    const photo=e.target.closest(".photo-gallery a[data-lightbox='photo']");
+    if(photo){e.preventDefault();const links=[...photo.closest(".photo-gallery").querySelectorAll("a[data-lightbox='photo']")];const list=links.map(a=>({category:"PHOTOGRAPHY",title:a.querySelector("img")?.alt||"Photograph",description:"",type:"image",media:[a.getAttribute("href")],alt:a.querySelector("img")?.alt||"",page:0}));open(list,links.indexOf(photo));return;}
+    const card=e.target.closest(".project-card[data-lightbox]");if(!card)return;const link=e.target.closest("a");if(link&&!link.classList.contains("view-project")&&link.getAttribute("href")!=="#")return;if(link)e.preventDefault();
+    const grid=card.closest(".project-grid");const cards=[...(grid||document).querySelectorAll(".project-card[data-lightbox]")].filter(c=>c.dataset.lightbox===card.dataset.lightbox);
+    let list;if(card.dataset.lightbox==="web")list=cards.map(c=>webProjects[c.dataset.project]||cardData(c));else if(card.dataset.lightbox==="video")list=cards.map(c=>videoProjects[c.dataset.project]||cardData(c));else list=cards.map(cardData);open(list,cards.indexOf(card));
   });
-  
-  // ======================================
-  // PHOTOGRAPHY LIGHTBOX
-  // ======================================
-  
-  const lightbox = document.getElementById("lightbox");
-  
-  if (lightbox) {
-    const lightboxImage = document.getElementById("lightbox-image");
-    const counter = document.getElementById("lightbox-counter");
-    const closeButton = document.querySelector(".lightbox-close");
-    const prevButton = document.querySelector(".lightbox-prev");
-    const nextButton = document.querySelector(".lightbox-next");
-  
-    let currentGallery = [];
-    let currentIndex = 0;
-  
-    function showImage(index) {
-      currentIndex = index;
-      const selectedImage = currentGallery[currentIndex];
-      if (!selectedImage) return;
-  
-      lightboxImage.src = selectedImage.href;
-      lightboxImage.alt = selectedImage.querySelector("img")?.alt || "";
-      counter.textContent = `${currentIndex + 1} / ${currentGallery.length}`;
-    }
-  
-    function nextPhoto() {
-      currentIndex = (currentIndex + 1) % currentGallery.length;
-      showImage(currentIndex);
-    }
-  
-    function previousPhoto() {
-      currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
-      showImage(currentIndex);
-    }
-  
-    function closePhotoLightbox() {
-      closeLightbox(lightbox);
-      lightboxImage.src = "";
-    }
-  
-    document.querySelectorAll(".photo-gallery a").forEach((link) => {
-      link.addEventListener("click", function (event) {
-        event.preventDefault();
-        const gallery = this.closest(".photo-gallery");
-        currentGallery = Array.from(gallery.querySelectorAll("a"));
-        currentIndex = currentGallery.indexOf(this);
-        showImage(currentIndex);
-        openLightbox(lightbox);
-      });
-    });
-  
-    nextButton?.addEventListener("click", nextPhoto);
-    prevButton?.addEventListener("click", previousPhoto);
-    closeButton?.addEventListener("click", closePhotoLightbox);
-  
-    lightbox.addEventListener("click", (event) => {
-      if (event.target === lightbox) closePhotoLightbox();
-    });
-  
-    // Expose methods for shared keyboard handler
-    lightbox.nextPhoto = nextPhoto;
-    lightbox.previousPhoto = previousPhoto;
-    lightbox.closePhoto = closePhotoLightbox;
-  }
-  
-  // ======================================
-  // GRAPHIC DESIGN PROJECT LIGHTBOX
-  // ======================================
-  
-  const projectLightbox = document.getElementById("projectLightbox");
-  const projects = Array.from(document.querySelectorAll(".project-card"));
-  
-  if (projectLightbox && projects.length > 0) {
-    const projectImage = document.getElementById("projectImage");
-    const projectCategory = document.getElementById("projectCategory");
-    const projectTitle = document.getElementById("projectTitle");
-    const projectDescription = document.getElementById("projectDescription");
-    const projectCount = document.getElementById("projectCount");
-  
-    const projectClose = document.querySelector(".project-close");
-    const projectPrev = document.querySelector(".project-prev");
-    const projectNext = document.querySelector(".project-next");
-  
-    let currentProject = 0;
-  
-    function showProject(index) {
-      currentProject = index;
-      const project = projects[currentProject];
-      if (!project) return;
-  
-      const image = project.querySelector("img");
-      const category = project.querySelector("span");
-      const title = project.querySelector("h2");
-      const description = project.querySelector("p");
-  
-      if (image) {
-        projectImage.src = image.src;
-        projectImage.alt = image.alt || "";
-      }
-  
-      projectCategory.textContent = category?.textContent || "";
-      projectTitle.textContent = title?.textContent || "";
-      projectDescription.textContent = description?.textContent || "";
-      projectCount.textContent = `${currentProject + 1} / ${projects.length}`;
-    }
-  
-    function nextProject() {
-      currentProject = (currentProject + 1) % projects.length;
-      showProject(currentProject);
-    }
-  
-    function previousProject() {
-      currentProject = (currentProject - 1 + projects.length) % projects.length;
-      showProject(currentProject);
-    }
-  
-    function closeProjectLightbox() {
-      closeLightbox(projectLightbox);
-      projectImage.src = "";
-    }
-  
-    // Make functions available to the shared keyboard handler
-    window.nextProject = nextProject;
-    window.previousProject = previousProject;
-    window.closeProjectLightbox = closeProjectLightbox;
-  
-    projects.forEach((project, index) => {
-      project.style.cursor = "pointer";
-      project.addEventListener("click", () => {
-        showProject(index);
-        openLightbox(projectLightbox);
-        projectClose?.focus();
-      });
-    });
-  
-    projectNext?.addEventListener("click", nextProject);
-    projectPrev?.addEventListener("click", previousProject);
-    projectClose?.addEventListener("click", closeProjectLightbox);
-  
-    projectLightbox.addEventListener("click", (event) => {
-      if (event.target === projectLightbox) closeProjectLightbox();
-    });
-  }
-  
-  // ======================================
-  // WEB DESIGN PROJECT LIGHTBOX
-  // ======================================
-  
-  const webProjectLightbox = document.getElementById("webProjectLightbox");
-  
-  if (webProjectLightbox) {
-    const webProjectImage = document.getElementById("webProjectImage");
-    const webProjectCategory = document.getElementById("webProjectCategory");
-    const webProjectTitle = document.getElementById("webProjectTitle");
-    const webProjectDescription = document.getElementById("webProjectDescription");
-    const webProjectCount = document.getElementById("webProjectCount");
-  
-    const webProjectClose = document.querySelector(".web-project-close");
-    const webProjectPrev = document.querySelector(".web-project-prev");
-    const webProjectNext = document.querySelector(".web-project-next");
-  
-    const webProjectData = {
-      scope: {
-        category: "PROJECT SCOPE",
-        title: "Galactic Kitchen Project Scope",
-        description: "Explore the planning, goals, and requirements behind the website.",
-        images: [
-          "Assets/WebDesign/ProjectScope/Scope1.png",
-          "Assets/WebDesign/ProjectScope/Scope2.png",
-          "Assets/WebDesign/ProjectScope/Scope3.png",
-        ],
-      },
-      wireframe: {
-        category: "WIREFRAME",
-        title: "Galactic Kitchen Wireframe",
-        description: "Explore the original page layouts and website structure.",
-        images: ["Assets/WebDesign/GalacticWireframe.jpg"],
-      },
-      prototype: {
-        category: "PROTOTYPE",
-        title: "Galactic Kitchen Prototype",
-        description: "Explore the interactive design and visual direction.",
-        images: ["Assets/WebDesign/Prototype.png"],
-      },
-    };
-  
-    let activeWebProject = null;
-    let activeWebPage = 0;
-  
-    function openWebProject(projectName) {
-      const project = webProjectData[projectName];
-      if (!project) return;
-  
-      activeWebProject = project;
-      activeWebPage = 0;
-  
-      webProjectCategory.textContent = project.category;
-      webProjectTitle.textContent = project.title;
-      webProjectDescription.textContent = project.description;
-  
-      webProjectLightbox.classList.toggle("single-image", project.images.length === 1);
-  
-      updateWebProject();
-      openLightbox(webProjectLightbox); // ← now uses shared helper
-      webProjectClose?.focus();
-    }
-  
-    function updateWebProject() {
-      if (!activeWebProject) return;
-  
-      webProjectImage.src = activeWebProject.images[activeWebPage];
-      webProjectImage.alt = `${activeWebProject.title}, page ${activeWebPage + 1}`;
-  
-      webProjectCount.textContent =
-        activeWebProject.images.length > 1
-          ? `PAGE ${activeWebPage + 1} OF ${activeWebProject.images.length}`
-          : "";
-    }
-  
-    function changeWebProjectPage(direction) {
-      if (!activeWebProject || activeWebProject.images.length <= 1) return;
-  
-      activeWebPage =
-        (activeWebPage + direction + activeWebProject.images.length) %
-        activeWebProject.images.length;
-  
-      updateWebProject();
-    }
-  
-    function closeWebProject() {
-      closeLightbox(webProjectLightbox);
-      webProjectLightbox.classList.remove("single-image");
-      webProjectImage.src = "";
-      activeWebProject = null;
-      activeWebPage = 0;
-    }
-  
-    // Expose for shared keyboard handler
-    window.changeWebProjectPage = changeWebProjectPage;
-    window.closeWebProject = closeWebProject;
-  
-    // Card clicks
-    document.querySelectorAll(".web-project-card").forEach((card) => {
-      card.addEventListener("click", function (event) {
-        event.preventDefault();
-        openWebProject(this.dataset.project);
-      });
-    });
-  
-    // Buttons
-    webProjectClose?.addEventListener("click", closeWebProject);
-    webProjectPrev?.addEventListener("click", () => changeWebProjectPage(-1));
-    webProjectNext?.addEventListener("click", () => changeWebProjectPage(1));
-  
-    // Click outside
-    webProjectLightbox.addEventListener("click", (event) => {
-      if (event.target === webProjectLightbox) closeWebProject();
-    });
-  }
+  closeButton.addEventListener("click",close);prevButton.addEventListener("click",()=>move(-1));nextButton.addEventListener("click",()=>move(1));lightbox.addEventListener("click",e=>{if(e.target===lightbox)close();});document.addEventListener("keydown",e=>{if(!lightbox.classList.contains("active"))return;if(e.key==="Escape")close();if(e.key==="ArrowRight")move(1);if(e.key==="ArrowLeft")move(-1);});
+})();
