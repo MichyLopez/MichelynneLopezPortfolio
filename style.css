@@ -381,8 +381,8 @@
   
   .about-image {
     position: relative;
-    flex: 1;
-    max-width: 440px;
+    flex: 0 1 400px;
+    max-width: 400px;
     background: #e7deed;
     padding: 14px;
     transform: rotate(-2deg);
@@ -405,8 +405,8 @@
   }
   
   .about-copy {
-    flex: 1;
-    max-width: 520px;
+    flex: 1 1 600px;
+    max-width: 700px;
   }
   
   .about-copy h2 {
@@ -414,7 +414,7 @@
   }
   
   .about-copy p {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.9;
     color: #6f6975;
   }
