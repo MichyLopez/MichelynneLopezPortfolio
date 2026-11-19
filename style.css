@@ -34,9 +34,7 @@
     margin-top: 0;
   }
   
-  /* ======================================
-     HEADER + NAV
-     ====================================== */
+  /* HEADER + NAV */
   
   .site-header {
     height: 76px;
@@ -94,9 +92,7 @@
     width: 100%;
   }
   
-  /* ======================================
-     HERO (HOME)
-     ====================================== */
+  /* HERO (HOME) */
   
   .hero {
     padding: 76px 9% 90px;
@@ -289,9 +285,7 @@
     margin-left: 5px;
   }
   
-  /* ======================================
-     FEATURED SECTION
-     ====================================== */
+   /* Featured Section */
   
   .featured-section {
     padding: 65px 9%;
@@ -349,9 +343,7 @@
     font-size: 20px;
   }
   
-  /* ======================================
-     PAGE LAYOUT
-     ====================================== */
+  /* Page Laypout */
   
   .page-wrap {
     padding: 65px 9% 90px;
@@ -378,9 +370,7 @@
     text-decoration: underline;
   }
   
-  /* ======================================
-     ABOUT PAGE
-     ====================================== */
+  /* ABOUT PAGE */
   
   .about-layout {
     display: flex;
@@ -448,9 +438,7 @@
     font-size: 11px;
   }
   
-  /* ======================================
-     WORK PAGE
-     ====================================== */
+  /* WORK PAGE */
   
   .work-categories {
     display: flex;
@@ -512,39 +500,204 @@
   .internship-category { background: #e4e9e1; }
   
   /* SHARED PROJECT GRIDS + CARDS */
-  .project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
-  .project-card{display:flex;flex-direction:column;min-width:0;background:#fff;border:1px solid var(--line);cursor:pointer;transition:transform .2s,box-shadow .2s}
-  .project-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(64,51,75,.08)}
-  .project-card img{display:block;width:100%;height:230px;object-fit:cover;background:#e5dfe8}
-  .project-card>div{padding:22px}.project-card h2{font:600 23px 'Playfair Display',serif;margin:9px 0}
-  .project-card p{font-size:13px;line-height:1.6;color:#77717e;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-  .project-card a{font-size:11px;color:var(--purple);font-weight:700}
-  /* PHOTOGRAPHY GALLERY */
-  .photo-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-bottom:45px}
-  .photo-gallery a{display:block;min-width:0;height:430px;overflow:hidden;background:#e5dfe8;cursor:pointer}
-  .photo-gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .35s}
-  .photo-gallery a:hover img{transform:scale(1.04)}
-  /* ONE SHARED LIGHTBOX FOR ALL PROJECT TYPES */
-  .project-lightbox{display:none;position:fixed;inset:0;z-index:9999;background:var(--overlay);justify-content:center;align-items:center;padding:40px 60px;box-sizing:border-box}
-  .project-lightbox.active{display:flex}
-  .project-popup{background:#fff;width:100%;max-width:1100px;min-height:460px;max-height:85vh;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr);border-radius:12px;overflow:hidden;position:relative;box-shadow:0 25px 60px rgba(0,0,0,.35)}
-  .project-preview{background:#f2f0f3;display:flex;justify-content:center;align-items:center;padding:30px;min-width:0;min-height:0}
-  #portfolioImage,#portfolioVideo{display:block;max-width:100%;max-height:75vh;width:auto;height:auto;object-fit:contain}
-  #portfolioVideo{width:100%;background:#111;border-radius:4px}#portfolioImage[hidden],#portfolioVideo[hidden]{display:none}
-  .project-info{padding:50px 40px;display:flex;flex-direction:column;justify-content:center;overflow-y:auto}
-  #portfolioCategory{color:var(--purple);font-size:12px;letter-spacing:2px;font-weight:600;margin-bottom:14px;font-family:'DM Mono',monospace}
-  #portfolioTitle{color:var(--ink);font-size:28px;line-height:1.2;margin:0 0 18px;font-family:'Playfair Display',serif;font-weight:600}
-  #portfolioDescription{color:#716b77;font-size:15px;line-height:1.8}
-  .project-count{color:#8a8490;font-size:12px;letter-spacing:2px;margin-top:32px;font-family:'DM Mono',monospace}
-  .lightbox-prev,.lightbox-next{position:absolute;top:50%;transform:translateY(-50%);color:white;font-size:36px;background:none;border:0;cursor:pointer;padding:16px;z-index:10;transition:color .2s}
-  .lightbox-prev{left:20px}.lightbox-next{right:20px}.lightbox-prev:hover,.lightbox-next:hover{color:#c9a9e5}
-  .lightbox-prev[hidden],.lightbox-next[hidden]{display:none}
-  .project-close{position:absolute;top:12px;right:18px;z-index:20;font-size:34px;line-height:1;color:#29232f;background:none;border:0;cursor:pointer;transition:color .2s}
-  .project-close:hover{color:var(--purple)}
+  .project-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:22px}
 
-  /* ======================================
-     FOOTER
-     ====================================== */
+  .project-card{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+    background:#fff;
+    border:1px solid var(--line);
+    cursor:pointer;
+    transition:transform .2s,box-shadow .2s}
+
+  .project-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 28px rgba(64,51,75,.08)}
+
+  .project-card img, .project-card video{
+    display:block;
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    background:#e5dfe8}
+
+  .project-card>div{
+    padding:22px}
+
+  .project-card h2{
+    font:600 23px 'Playfair Display',serif;
+    margin:9px 0}
+
+  .project-card p{
+    font-size:13px;
+    line-height:1.6;
+    color:#77717e;
+    display:-webkit-box;
+    -webkit-line-clamp:3;
+    -webkit-box-orient:vertical;
+    overflow:hidden}
+
+  .project-card a{
+    font-size:11px;
+    color:var(--purple);
+    font-weight:700}
+ 
+  /* PHOTOGRAPHY GALLERY */
+  .photo-gallery{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+    margin-bottom:45px}
+
+  .photo-gallery a{
+    display:block;
+    min-width:0;
+    height:430px;
+    overflow:hidden;
+    background:#e5dfe8;
+    cursor:pointer}
+
+  .photo-gallery img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .35s}
+
+  .photo-gallery a:hover img{
+    transform:scale(1.04)}
+
+  /* ONE SHARED LIGHTBOX FOR ALL PROJECT TYPES */
+  .project-lightbox{
+    display:none;
+    position:fixed;inset:0;
+    z-index:9999;
+    background:var(--overlay);
+    justify-content:center;
+    align-items:center;
+    padding:40px 60px;
+    box-sizing:border-box}
+
+  .project-lightbox.active{display:flex}
+
+  .project-popup{
+    background:#fff;
+    width:100%;
+    max-width:1100px;
+    min-height:460px;
+    max-height:85vh;
+    display:grid;
+    grid-template-columns:minmax(0,1.4fr) minmax(300px,1fr);
+    border-radius:12px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 25px 60px rgba(0,0,0,.35)}
+  
+  .project-preview{
+    background:#f2f0f3;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+    min-width:0;
+    min-height: 0}
+
+  #portfolioImage,#portfolioVideo{
+    display:block;
+    max-width:100%;
+    max-height:75vh;
+    width:auto;
+    height:auto;
+    object-fit:contain}
+
+  #portfolioVideo{
+    width:100%;
+    background:#111;
+    border-radius:4px}
+  
+    #portfolioImage[hidden],#portfolioVideo[hidden]{display:none}
+
+  .project-info{
+    padding:50px 40px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    overflow-y:auto}
+
+  #portfolioCategory{
+    color:var(--purple);
+    font-size:12px;
+    letter-spacing:2px;
+    font-weight:600;
+    margin-bottom:14px;
+    font-family:'DM Mono',monospace}
+
+  #portfolioTitle{
+    color:var(--ink);
+    font-size:28px;
+    line-height:1.2;
+    margin:0 0 18px;
+    font-family:'Playfair Display',serif;
+    font-weight:600}
+
+  #portfolioDescription{
+    color:#716b77;
+    font-size:15px;
+    line-height:1.8}
+
+  .project-count{
+    color:#8a8490;
+    font-size:12px;
+    letter-spacing:2px;
+    margin-top:32px;
+    font-family:'DM Mono',monospace}
+
+  .lightbox-prev,.lightbox-next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    color:white;
+    font-size:36px;
+    background:none;
+    border:0;
+    cursor:pointer;
+    padding:16px;
+    z-index:10;
+    transition:color .2s}
+
+  .lightbox-prev{
+    left:20px}
+
+  .lightbox-next{
+    right:20px}
+
+  .lightbox-prev:hover,.lightbox-next:hover{
+    color:#c9a9e5}
+
+  .lightbox-prev[hidden],.lightbox-next[hidden]{
+    display:none}
+
+  .project-close{
+    position:absolute;
+    top:12px;
+    right:18px;
+    z-index:20;
+    font-size:34px;
+    line-height:1;
+    color:#29232f;
+    background:none;
+    border:0;
+    cursor:pointer;
+    transition:color .2s}
+
+  .project-close:hover{
+    color:var(--purple)}
+
+  /* FOOTER */
   
   .site-footer {
     display: flex;
@@ -559,8 +712,8 @@
   .site-footer a:hover {
     color: var(--purple);
   }
-  
 
+  
 @media(max-width:760px){
 .site-header{height:auto;min-height:70px;padding:17px 6%;gap:15px;flex-wrap:wrap}.nav{gap:20px}.hero{padding:55px 7%;flex-direction:column;align-items:stretch}.hero-board{width:100%;max-width:none;height:350px}.featured-section,.page-wrap{padding-left:7%;padding-right:7%}.featured-row{flex-direction:column}.feature-card{min-height:180px}.about-layout{flex-direction:column;align-items:stretch}.about-image{max-width:50%}.about-image img{height:330px}.work-category{flex-direction:column}.category-image{width:100%;height:190px}.category-image img{min-height:190px;max-height:190px}.project-grid{grid-template-columns:1fr}.photo-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.photo-gallery a{height:360px}.section-heading{align-items:flex-start;gap:20px;flex-direction:column}.site-footer{padding-left:7%;padding-right:7%;flex-wrap:wrap}.project-lightbox{padding:55px 48px}.project-popup{grid-template-columns:1fr;max-height:88vh;overflow-y:auto}.project-preview{min-height:260px}.project-info{padding:28px}#portfolioImage,#portfolioVideo{max-height:45vh}.lightbox-prev{left:0}.lightbox-next{right:0}}
 @media(max-width:420px){.brand{font-size:11px}.nav{width:100%;justify-content:flex-start}.hero h1{font-size:58px}.polaroid{width:175px}.polaroid img{height:120px}.hero-board{height:315px}.adobe-strip{left:23%}.photo-gallery{grid-template-columns:1fr}.photo-gallery a{height:420px}.button-row{align-items:flex-start;flex-direction:column;gap:18px}.project-lightbox{padding:48px 38px}.project-preview{min-height:210px;padding:18px}.project-info{padding:24px}#portfolioTitle{font-size:24px}}
