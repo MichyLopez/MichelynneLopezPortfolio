@@ -70,9 +70,9 @@
         { type: "image", src: "Assets/Internship/otherAssets/BrandStatmentSS.PNG" },
         { type: "image", src: "Assets/Internship/otherAssets/FallCampSS.PNG" },
         { type: "image", src: "Assets/Internship/otherAssets/WinterCampSS.PNG" },
-        { type: "video", src: "Assets/Internship/TrunkorTreat/trunkOrTreatSRec.mp4" },
-        { type: "image", src: "Assets/Internship/TrunkorTreat/trunkOrTreat.PNG" },
-        { type: "image", src: "Assets/Internship/TrunkorTreat/MondayCaptionsSS.PNG" }
+        { type: "video", src: "Assets/Internship/otherAssets/trunkOrTreatSRec.mp4" },
+        { type: "image", src: "Assets/Internship/otherAssets/trunkOrTreat.PNG" },
+        { type: "image", src: "Assets/Internship/otherAssets/MondayCaptionsSS.PNG" }
       ]
     }
   };
