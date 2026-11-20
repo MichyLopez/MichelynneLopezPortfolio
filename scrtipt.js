@@ -30,10 +30,10 @@
       title: "Big Give Projects",
       description: "A collection of photography, graphics, and video content created for Big Give.",
       media: [
-        { type: "video", src: "Assets/Internship/BigGive/BigGiveReel.mp4" },
+        { type: "video", src: "Assets/Internship/BigGive/BigGiveReel.MP4" },
         { type: "image", src: "Assets/Internship/BigGive/BigGiveBingo.png" },
         { type: "video", src: "Assets/Internship/BigGive/TimeUpdatesforLives.MP4" },
-        { type: "image", src: "Assets/Internship/BigGive/BigGiveBG.jpg" },
+        { type: "image", src: "Assets/Internship/BigGive/BigGiveBG.JPG" },
         { type: "image", src: "Assets/Internship/BigGive/qrBeforeAfter.png" }
       ]
     },
